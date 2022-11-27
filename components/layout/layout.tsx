@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Navbar from "./navbar";
 import Footer from "./footer";
+import { ThemeProvider } from "../../hooks/ThemeContext";
 
 function Layout(props: React.HtmlHTMLAttributes<HTMLDivElement>) {
   return (
@@ -13,13 +14,20 @@ function Layout(props: React.HtmlHTMLAttributes<HTMLDivElement>) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-        <Navbar />
-      </header>
-      <main>{props.children}</main>
-      <footer>
-        <Footer />
-      </footer>
+
+      <ThemeProvider>
+        <div className="bg-gray-100 dark:bg-black w-screen h-screen dark:text-colorWhite">
+          <div className="bg-colorWhite dark:bg-colorBlack border-colorWhite/50 h-full w-full mx-auto lg:max-w-screen-lg md:max-w-screen-md  flex flex-col px-3 md:px-5 lg:px-10 py-5">
+            <header>
+              <Navbar />
+            </header>
+            <main className="flex-grow">{props.children}</main>
+            <footer>
+              <Footer />
+            </footer>
+          </div>
+        </div>
+      </ThemeProvider>
     </>
   );
 }
