@@ -14,6 +14,7 @@ export const MenuItems = [
   { href: "/about", text: "About" },
   { href: "/articles", text: "Articles" },
   { href: "/projects", text: "Projects" },
+  { href: "/contact", text: "Contact" },
 ];
 
 type NavLinkProps = {
@@ -104,9 +105,11 @@ function Navbar() {
         className="rounded-full border px-4 mx-3 gap-5 hidden md:flex flex-row shadow-sm
       dark:border-colorWhite/5 dark:bg-colorWhite/5"
       >
-        <NavLink href="/about">About</NavLink>
-        <NavLink href="/articles">Articles</NavLink>
-        <NavLink href="/projects">Projects</NavLink>
+        {MenuItems.map((item) => (
+          <NavLink key={item.href} href={item.href}>
+            {item.text}
+          </NavLink>
+        ))}
       </div>
 
       {/* TOGGLE MENU BUTTON */}

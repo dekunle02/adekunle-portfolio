@@ -17,7 +17,10 @@ function Layout(props: React.HtmlHTMLAttributes<HTMLDivElement>) {
 
       <ThemeProvider>
         <div className="bg-gray-100 dark:bg-black w-screen h-screen dark:text-colorWhite">
-          <div className="bg-colorWhite dark:bg-colorBlack border-colorWhite/50 h-full w-full mx-auto lg:max-w-screen-lg md:max-w-screen-md  flex flex-col px-3 md:px-5 lg:px-10 py-5">
+          <div
+            className="bg-colorWhite dark:bg-colorBlack border-colorWhite/50 w-full h-full mx-auto overflow-auto
+          lg:max-w-screen-lg md:max-w-screen-md flex flex-col px-3 md:px-5 lg:px-10 py-5"
+          >
             <header>
               <Navbar />
             </header>
