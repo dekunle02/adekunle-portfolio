@@ -34,7 +34,7 @@ function AboutPage() {
       </p>
       <p>
         I also love making art and it has grown to be a lifelong passion of
-        mine. I made my first sketches as child and I can say that I indeed
+        mine. I made my first sketches as a child and I can say that I indeed
         never looked back since then. Follow my art journey{" "}
         <a href="https://www.kunlepaints.com" className="link">
           here.
@@ -42,7 +42,8 @@ function AboutPage() {
       </p>
       <p>
         I am a doctor in my spare time and I am very happily married to my best
-        friend in the world.{" "}
+        friend in the world. I love long walks on the beach, travelling and
+        having fun 🙃.
       </p>
     </div>
   );

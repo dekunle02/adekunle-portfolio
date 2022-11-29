@@ -8,11 +8,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        colorWhite: '#fafafa',
+        colorWhite: '#f5f5f5',
         colorBlack: '#111215',
         colorGray: '#1f1f22'
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
 }

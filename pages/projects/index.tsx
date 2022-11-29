@@ -1,9 +1,41 @@
-function ProjectsPage() {
+import path from "path";
+import fs from "fs/promises";
+
+import ProjectCard, { Project } from "../../components/projects/project-card";
+type ProjectsPageProps = {
+  projects: Project[];
+};
+
+function ProjectsPage(props: ProjectsPageProps) {
+  console.log("props==>", props);
+  const { projects } = props;
   return (
-    <div>
-      <h1>My Projects</h1>
+    <div className="py-2">
+      <h1 className="text-4xl ">Things I have built</h1>
+      <br />
+      <p className="text-colorBlack/80 dark:text-colorWhite/80">
+        I have built and tinkered with all sorts of things over the years, but
+        here are all the things I am most proud of. They range from automation
+        bots, mobile applications to fullstack web applications.
+      </p>
+      <ul>
+        {projects.map((project) => (
+          <li key={project.name}>
+            <ProjectCard project={project} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const filePath = path.join(process.cwd() + "/services/projects.json");
+  const jsonData = await fs.readFile(filePath);
+  const data = JSON.parse(jsonData.toString());
+  return {
+    props: { projects: data }, // will be passed to the page component as props
+  };
 }
 
 export default ProjectsPage;

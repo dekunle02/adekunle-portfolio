@@ -7,14 +7,15 @@
     @apply flex flex-row gap-2 items-center;
   }
 
-  .form-input {
-    @apply border border-gray-400 w-full rounded-2xl p-2 focus:border-colorPrimary focus:ring-colorPrimary;
-  }
-
   .form-label {
     @apply mb-1 ml-3;
   }
   .link {
     @apply hover:underline italic text-colorBlack/80 dark:text-colorWhite/80;
+  }
+
+  .button {
+    @apply border dark:border-colorWhite/20 bg-colorBlack text-colorWhite hover:bg-colorBlack/80 
+    dark:bg-colorWhite/10 dark:text-colorWhite dark:hover:bg-colorWhite/20 rounded-lg p-2;
   }
 }
