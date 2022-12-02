@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ForwardedRef } from "react";
 
 // Documentation for react hook forms => https://react-hook-form.com/get-started#Handleerrors
 
@@ -34,6 +34,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
         </label>
         {type === "textarea" ? (
           <textarea
+            ref={ref as ForwardedRef<HTMLTextAreaElement>}
             id={id}
             className={`${
               showError ? "ring-2 ring-rose-800/10 border border-rose-800" : ""

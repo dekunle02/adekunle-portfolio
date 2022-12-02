@@ -63,14 +63,13 @@ function ContactMe() {
 
         <FormInput
           id="message"
-          type="text"
+          type="textarea"
           showError={!!errors.message}
           errorMessage={errors.message?.message}
           placeholder="What would you like to tell me?"
-          {...register("message", { required: "XYZ" })}
-          // {...register("message", {
-          //   required: "You have not entered your message",
-          // })}
+          {...register("message", {
+            required: "You have not entered your message",
+          })}
         />
 
         <button type="submit" className="button icon-button px-3 w-min mx-auto">

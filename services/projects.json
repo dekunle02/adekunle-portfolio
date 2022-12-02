@@ -37,7 +37,7 @@
   {
     "name": "Spot",
     "imageSrc": "/spot.jpeg",
-    "title": "Work automation tool that creates spreadsheets",
+    "title": "Work automation tool that makes spreadsheets",
     "description": "This is an application I wrote in python that integrates with Telegram to allow myself and my work colleagues to generate pdf reports. I use firebase to save user data and a headless chromium browser to preview templates and it is hosted on amazon EC2 instance.",
     "links": [
       {
@@ -64,7 +64,7 @@
     "links": [
       {
         "href": "https://tellerbase.com",
-        "text": "tellerbase.com",
+        "text": "Tellerbase",
         "icon": "link"
       }
     ],
