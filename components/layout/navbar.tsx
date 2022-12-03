@@ -12,7 +12,7 @@ import { useTheme, Theme } from "../../hooks/ThemeContext";
 
 export const MenuItems = [
   { href: "/about", text: "About" },
-  { href: "/articles", text: "Articles" },
+  // { href: "/articles", text: "Articles" },
   { href: "/projects", text: "Projects" },
   { href: "/contact", text: "Contact" },
 ];

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 export enum Theme {
   DarkMode = "darkmode",
@@ -20,12 +20,30 @@ export function useTheme() {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [activeTheme, setActiveTheme] = useState(Theme.LightMode);
+  const [activeTheme, setActiveTheme] = useState<Theme>(Theme.LightMode);
+
+  useEffect(() => {
+    const systemTheme =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? Theme.DarkMode
+        : Theme.LightMode;
+
+    const sessionTheme = sessionStorage.getItem("theme");
+    if (sessionTheme === Theme.LightMode || sessionTheme === Theme.DarkMode) {
+      setActiveTheme(sessionTheme);
+    } else {
+      setActiveTheme(systemTheme);
+    }
+  }, []);
+
   function toggleTheme() {
     if (activeTheme === Theme.LightMode) {
       setActiveTheme(Theme.DarkMode);
+      sessionStorage.setItem("theme", Theme.DarkMode);
     } else {
       setActiveTheme(Theme.LightMode);
+      sessionStorage.setItem("theme", Theme.LightMode);
     }
   }
   const style = activeTheme === Theme.DarkMode ? "dark" : "";

@@ -15,7 +15,7 @@ function Home() {
           transition={{ ease: "easeOut", duration: 1 }}
           className="text-4xl md:text-6xl font-bold md:self-end"
         >
-          Hello World.
+          &lt;Hello World/&gt;
         </motion.h1>
         <Image
           className="rotate-3 rounded-3xl row-span-3 justify-self-center self-center my-5 md:my-0"

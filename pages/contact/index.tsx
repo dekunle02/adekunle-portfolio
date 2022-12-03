@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import FormInput from "../../components/core/formInput";
 import { MdSend, MdMail } from "react-icons/md";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export type ContactFormInputs = {
   name: string;
@@ -8,16 +10,26 @@ export type ContactFormInputs = {
   message: string;
 };
 
+const SubmitState = {
+  default: "default",
+  sending: "sending",
+  success: "success",
+  failure: "failure",
+};
+
 function ContactMe() {
+  const [submitState, setSubmitState] = useState(SubmitState.default);
   const {
     register,
     handleSubmit,
+    reset,
     watch,
     formState: { errors },
   } = useForm<ContactFormInputs>();
 
   function onSubmit(data: ContactFormInputs) {
-    console.log(data);
+    if (submitState === SubmitState.sending) return;
+    setSubmitState(SubmitState.sending);
     fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify(data),
@@ -25,8 +37,19 @@ function ContactMe() {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((response) => {
+        setSubmitState(SubmitState.success);
+        reset();
+      })
+      .catch((data) => {
+        setSubmitState(SubmitState.failure);
+      });
+  }
+
+  function handleChange() {
+    if (submitState !== SubmitState.default) {
+      setSubmitState(SubmitState.default);
+    }
   }
 
   return (
@@ -41,6 +64,7 @@ function ContactMe() {
       </a>
       <form
         onSubmit={handleSubmit(onSubmit)}
+        onChange={handleChange}
         className="flex flex-col p-5 gap-5 border dark:border-colorWhite/10 rounded-lg max-w-2xl my-5"
       >
         <FormInput
@@ -72,10 +96,29 @@ function ContactMe() {
           })}
         />
 
-        <button type="submit" className="button icon-button px-3 w-min mx-auto">
-          <MdSend />
+        <button
+          type="submit"
+          className="button icon-button px-3 w-min mx-auto"
+          disabled={submitState === SubmitState.sending}
+        >
+          {submitState === SubmitState.sending ? (
+            <AiOutlineLoading3Quarters className="animate-spin" />
+          ) : (
+            <MdSend />
+          )}
           Send
         </button>
+        {submitState === SubmitState.success && (
+          <p className="text-teal-600 text-center text-sm">
+            Your form has been sent successfully!
+          </p>
+        )}
+
+        {submitState === SubmitState.failure && (
+          <p className="text-rose-800 text-center text-sm">
+            Form Not Sent. An error occured.
+          </p>
+        )}
       </form>
     </div>
   );

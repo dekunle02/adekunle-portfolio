@@ -7,12 +7,12 @@ function Layout(props: React.HtmlHTMLAttributes<HTMLDivElement>) {
   return (
     <>
       <Head>
-        <title>Adekunle Adeleke</title>
+        <title>Adekunle Adeleke - Software Engineer, Founder, Tinkerer</title>
         <meta
           name="description"
           content="Portfolio website for Samad Adekunle Adeleke"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.jpeg" />
       </Head>
 
       <ThemeProvider>
