@@ -1,0 +1,73 @@
+[
+  {
+    "name": "Plaboscope",
+    "imageSrc": "/plaboscope.png",
+    "title": "Exam preparation android quiz app",
+    "description": "This app holds a special place in my heart as it was the whole reason I started my tech journey. I wanted to build a free resource for other doctors who were sitting the PLAB examination after I had just written it while using a lot of different resources. It serves questions and answers and includes many features tailored towards passing the exam. It is an android application initially written in Java but converted to Kotlin, using an MVVM pattern with a firebase backend.",
+    "links": [
+      {
+        "href": "https://play.google.com/store/apps/details?id=com.adeleke.samad.plaboscope&hl=en_GB&gl=US",
+        "text": "Play Store",
+        "icon": "play"
+      },
+      {
+        "href": "https://github.com/dekunle02/Plaboscope",
+        "text": "Github",
+        "icon": "github"
+      }
+    ],
+    "slug": "plaboscope"
+  },
+
+  {
+    "name": "EDD",
+    "imageSrc": "/edd.png",
+    "title": "Pregnancy information calculator for medical professionals",
+    "description": "This is an android application that solved the very simple problem of calculating a pregnant woman’s expected date of delivery  or estimated gestational age. I found all the solutions available clunky and a lot of my colleagues and other users agree with me.",
+    "links": [
+      {
+        "href": "https://play.google.com/store/apps/details?id=com.adeleke.samad.eddandega&hl=en_GB&gl=US",
+        "text": "Play Store",
+        "icon": "play"
+      }
+    ],
+    "slug": "edd-ega"
+  },
+
+  {
+    "name": "Spot",
+    "imageSrc": "/spot.jpeg",
+    "title": "Work automation tool that makes spreadsheets",
+    "description": "This is an application I wrote in python that integrates with Telegram to allow myself and my work colleagues to generate pdf reports. I use firebase to save user data and a headless chromium browser to preview templates and it is hosted on an amazon EC2 instance.",
+    "links": [
+      {
+        "href": "https://t.me/spot_nes_bot",
+        "text": "Telegram Link",
+        "icon": "link"
+      }
+    ],
+    "slug": "spot"
+  },
+  {
+    "name": "Ibiyemi",
+    "imageSrc": "/ibiyemi.png",
+    "title": "Retail inventory and sales application",
+    "description": "A Fullstack Django web application with a React frontend. This has gone through many iteration cycles based on user feedback and this taught me a very valuable lesson in putting customers' needs first. I thoroughly enjoyed working on it.",
+    "links": [],
+    "slug": "ibiyemi"
+  },
+  {
+    "name": "Tellerbase",
+    "imageSrc": "/tellerbase.png",
+    "title": "School management and payment processing application",
+    "description": "My proudest achievement till date. It was, and is still being built with my amazing cofounders. Find out more about the amazing work we’re doing below.",
+    "links": [
+      {
+        "href": "https://tellerbase.com",
+        "text": "Tellerbase",
+        "icon": "link"
+      }
+    ],
+    "slug": "tellerbase"
+  }
+]

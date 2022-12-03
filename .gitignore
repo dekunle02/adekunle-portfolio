@@ -15,9 +15,9 @@
 # production
 /build
 
-/services
-fire.ts
-services
+# /services
+# fire.ts
+# services
 
 
 # misc
