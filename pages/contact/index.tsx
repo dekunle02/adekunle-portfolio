@@ -3,6 +3,12 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import FormInput from "../../components/core/formInput";
 import { MdSend, MdMail } from "react-icons/md";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, set } from "firebase/database";
+import { firebaseConfig } from "../../services/fire";
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 
 export type ContactFormInputs = {
   name: string;
@@ -27,21 +33,40 @@ function ContactMe() {
     formState: { errors },
   } = useForm<ContactFormInputs>();
 
-  function onSubmit(data: ContactFormInputs) {
+  // function onSubmit(data: ContactFormInputs) {
+  //   if (submitState === SubmitState.sending) return;
+  //   setSubmitState(SubmitState.sending);
+  //   fetch("/api/contact", {
+  //     method: "POST",
+  //     body: JSON.stringify(data),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((response) => {
+  //       setSubmitState(SubmitState.success);
+  //       reset();
+  //     })
+  //     .catch((data) => {
+  //       setSubmitState(SubmitState.failure);
+  //     });
+  // }
+
+  function onSubmit({ name, email, message }: ContactFormInputs) {
     if (submitState === SubmitState.sending) return;
     setSubmitState(SubmitState.sending);
-    fetch("/api/contact", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
+    set(ref(database, "/enquiries/" + name + "/"), {
+      name: name,
+      email: email,
+      message: message,
     })
       .then((response) => {
+        console.log("response ->", response);
         setSubmitState(SubmitState.success);
         reset();
       })
-      .catch((data) => {
+      .catch((err) => {
+        console.log("error ->", err);
         setSubmitState(SubmitState.failure);
       });
   }

@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
 
 // Firebase configuration
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "adekunle-68dab.firebaseapp.com",
   projectId: "adekunle-68dab",
@@ -22,9 +22,9 @@ export function addEnquiry(name: string, email: string, message: string) {
     message: message,
   })
     .then((response) => {
-      // console.log("res---", response);
+      console.log("res---", response);
     })
     .catch((err) => {
-      // console.log("err---", err);
+      console.log("err---", err);
     });
 }
