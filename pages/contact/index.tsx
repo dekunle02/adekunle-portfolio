@@ -33,6 +33,7 @@ function ContactMe() {
     formState: { errors },
   } = useForm<ContactFormInputs>();
 
+  // If I wanted to use the in built api functionality of NEXT
   // function onSubmit(data: ContactFormInputs) {
   //   if (submitState === SubmitState.sending) return;
   //   setSubmitState(SubmitState.sending);
@@ -52,6 +53,7 @@ function ContactMe() {
   //     });
   // }
 
+  // This is simpler
   function onSubmit({ name, email, message }: ContactFormInputs) {
     if (submitState === SubmitState.sending) return;
     setSubmitState(SubmitState.sending);
@@ -61,12 +63,10 @@ function ContactMe() {
       message: message,
     })
       .then((response) => {
-        console.log("response ->", response);
         setSubmitState(SubmitState.success);
         reset();
       })
       .catch((err) => {
-        console.log("error ->", err);
         setSubmitState(SubmitState.failure);
       });
   }
