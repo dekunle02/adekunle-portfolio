@@ -13,7 +13,7 @@ function Home() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ease: "easeOut", duration: 1 }}
-          className="text-4xl md:text-6xl font-bold md:self-end"
+          className="text-3xl md:text-5xl font-bold text-center md:text-start md:self-end font-mono"
         >
           &lt;Hello World/&gt;
         </motion.h1>
