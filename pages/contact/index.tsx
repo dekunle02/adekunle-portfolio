@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
 import FormInput from "../../components/core/formInput";
 import { MdSend, MdMail } from "react-icons/md";
@@ -9,6 +10,9 @@ import { firebaseConfig } from "../../services/fire";
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+
+const baseUrl: string =
+  process.env.NEXT_PUBLIC_BACKEND_BASE_URL ?? "http://127.0.0.1:8000/";
 
 export type ContactFormInputs = {
   name: string;
@@ -54,15 +58,32 @@ function ContactMe() {
   // }
 
   // This is simpler
-  function onSubmit({ name, email, message }: ContactFormInputs) {
+  // function onSubmit({ name, email, message }: ContactFormInputs) {
+  //   if (submitState === SubmitState.sending) return;
+  //   setSubmitState(SubmitState.sending);
+  //   set(ref(database, "/enquiries/" + name + "/"), {
+  //     name: name,
+  //     email: email,
+  //     message: message,
+  //   })
+  //     .then((response) => {
+  //       setSubmitState(SubmitState.success);
+  //       reset();
+  //     })
+  //     .catch((err) => {
+  //       setSubmitState(SubmitState.failure);
+  //     });
+  // }
+
+  function onSubmit(data: ContactFormInputs) {
     if (submitState === SubmitState.sending) return;
     setSubmitState(SubmitState.sending);
-    set(ref(database, "/enquiries/" + name + "/"), {
-      name: name,
-      email: email,
-      message: message,
-    })
-      .then((response) => {
+    axios
+      .post(baseUrl + "api/v1/community/request-tree", {
+        user: "Anon",
+        query: `Message from Adekunle.dev: -> ${JSON.stringify(data, null, 4)}`,
+      })
+      .then((res) => {
         setSubmitState(SubmitState.success);
         reset();
       })
@@ -83,7 +104,7 @@ function ContactMe() {
       <h5>Send a message to me and I will get back to you as soon as I can.</h5>
       <a
         className="flex flex-row icon-button link md:px-5"
-        href="mailto:samad@tellerbase.com"
+        href="mailto:dekunle.py@gmail.com"
       >
         <MdMail /> samad@tellerbase.com
       </a>

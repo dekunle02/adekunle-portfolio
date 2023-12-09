@@ -28,13 +28,8 @@ function Home() {
           animate={{ opacity: [0, 1], x: [-10, 0] }}
           transition={{ ease: "backInOut", duration: 1 }}
         >
-          I&apos;m Samad, a software engineer based in the United Kingdom. I am
-          a cofounder and CTO of{" "}
-          <a href="https://tellerbase.com" className="link">
-            Tellerbase
-          </a>
-          , where we build innovative solutions to problems in education in
-          Nigeria.
+          I&apos;m Samad, a software engineer based in the United Kingdom. I
+          love making awesome tools.
         </motion.h4>
         <ul className="flex flex-row gap-5 mt-3 text-lg text-colorBlack/60 dark:text-colorWhite/60">
           {SocialMediaItems.map((item) => (
