@@ -14,21 +14,11 @@ export const SocialMediaItems = [
     title: "Github",
     icon: <IoLogoGithub />,
   },
-  {
-    href: "https://twitter.com/kunle_paints",
-    title: "Twitter",
-    icon: <IoLogoTwitter />,
-  },
-  {
-    href: "https://instagram.com/dekunle02",
-    title: "Instagram",
-    icon: <FaInstagram />,
-  },
-  {
-    href: "https://www.linkedin.com/in/samad-a-2854261a4/",
-    title: "LinkedIn>",
-    icon: <SiLinkedin />,
-  },
+  // {
+  //   href: "https://www.linkedin.com/in/samad-a-2854261a4/",
+  //   title: "LinkedIn>",
+  //   icon: <SiLinkedin />,
+  // },
 ];
 
 export default function SocialMediaLink(props: SocialMediaLinkProps) {
