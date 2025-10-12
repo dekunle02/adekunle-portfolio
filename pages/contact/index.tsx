@@ -106,7 +106,7 @@ function ContactMe() {
         className="flex flex-row icon-button link md:px-5"
         href="mailto:dekunle.py@gmail.com"
       >
-        <MdMail /> samad@tellerbase.com
+        <MdMail /> dekunle.py@gmail.com
       </a>
       <form
         onSubmit={handleSubmit(onSubmit)}
